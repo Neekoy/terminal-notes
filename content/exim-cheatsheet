@@ -1,0 +1,39 @@
+Clear mail queue:
+
+exim -bp | exiqgrep -i | xargs exim -Mrm
+
+Number of emails per email account:
+
+exim -bpr | grep "<" | awk {'print $4'} | cut -d "<" -f 2 | cut -d ">" -f 1 | sort -n | uniq -c | sort -n
+
+Check for cwd:
+
+grep "cwd=/home" /var/log/exim_mainlog | grep -v Cron | awk '{for(i=1;i<=10;i++){print $i}}' | sort | uniq -c | grep cwd | sort -n
+
+awk '{ if ($0 ~ "cwd" && $0 ~ "home") {print $3} }' /var/log/exim_mainlog | sort | uniq -c | sort -nk 1
+
+grep 'cwd=/home' /var/log/exim_mainlog | awk '{print $3}' | cut -d / -f 3 | sort -bg | uniq -c | sort -bg
+
+Find script:
+
+egrep -R "X-PHP-Script"  /var/spool/exim/input/*
+
+Top 50 usage:
+
+eximstats -ne -nr /var/log/exim_mainlog
+
+Check by home folders:
+
+ps -C exim -fH ewww | grep home
+
+IPs connected on port 25:
+
+netstat -plan | grep :25 | awk {'print $5'} | cut -d: -f 1 | sort | uniq -c | sort -nk 1
+
+"Nobody" spamming:
+
+ps -C exim -fH ewww | awk '{for(i=1;i<=40;i++){print $i}}' | sort | uniq -c | grep PWD | sort -n
+
+Mail queue summary:
+
+exim -bpr | exiqsumm -c | head

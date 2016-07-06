@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#Database login credentials - need to be changed accordingly
+dbHost="10.168.1.54"
+dbName="rightweb_valerie"
+dbUser="rightweb_valerie"
+dbPass="D101Fott@RightWebsite"
+
+#How many days the backups should be kept for before being removed
+keepBackupsFor="7"
+
+if [ ! -d ~/additional_backups ]; then mkdir ~/additional_backups; fi
+
+curTime=$(date +"%m-%d-%y_%H:%M")
+
+mysqldump -h ${dbHost} -u ${dbUser} -p${dbPass} ${dbName} > ~/additional_backups/${curTime}-sql_backup.sql
+
+#tar -zcvf ~/additional_backups/${curTime}-website_files.tar.gz public_html
+
+find ~/additional_backups -type f -ctime +${keepBackupsFor} -exec rm -f {} \;

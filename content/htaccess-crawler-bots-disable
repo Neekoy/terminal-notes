@@ -1,0 +1,6 @@
+ErrorDocument 503 "Site temporarily disabled for crawling"
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} ^.*(bot|crawl|spider).*$ [NC]
+RewriteCond %{REQUEST_URI} !^/robots\.txt$
+RewriteRule .* - [R=503,L]
+

@@ -1,0 +1,5 @@
+RewriteCond %{SERVER_PORT} 443 [OR]
+RewriteCond %{HTTPS} on [OR]
+RewriteCond %{HTTP:X-Forwarded-Proto} https [OR]
+RewriteCond %{HTTP:X-Forwarded_Proto} https
+RewriteRule (.*) http://%{HTTP_HOST}/$1 [R=301,L]

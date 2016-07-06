@@ -1,0 +1,13 @@
+Thank you for the order. Can you please confirm the following setup information so we can proceed with the creation of the server:
+
+Server Name: It can be your name, company name, domain name, or basically anything you want that is not already taken. Server hostnames are in the following format:
+
+yourname.servers.prgn.misp.co.uk
+
+Operating System: By default our setup is on CentOS Linux 6.5, however we can set up any other operating system you would like.
+
+PHP Version: By default we are running PHP 5.4, however again we can set up any version you would like.
+
+MySQL Version: Default is 5.5, however we can set up anything.
+
+Custom software: Here you can specify any additional software that you would like to have installed onto the server. We can always install or remove additional software based on request if you submit a ticket to us.

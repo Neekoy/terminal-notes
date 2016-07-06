@@ -1,0 +1,21 @@
+Repair all databases:
+
+mysqlcheck --auto-repair --all-databases
+
+Make InnoDB read-only:
+
+/etc/my.cnf:
+innodb_force_recovery = 4
+
+Export all databases:
+
+mysqldump --all-databases > alldb.sql
+
+Repair eximstats:
+
+mysqlcheck --repair eximstats
+OR:
+/usr/local/cpanel/bin/updateeximstats
+OR:
+mysql -> drop database eximstats; -> create database eximstats;
+/scripts/import_exim_data /var/log/exim_mainlog*

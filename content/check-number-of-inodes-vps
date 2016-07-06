@@ -1,0 +1,1 @@
+ls -1R|awk -F "\n" 'BEGIN {RS="\\n\\n"} NF>1000 {print $1, NF-1}'

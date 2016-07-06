@@ -1,0 +1,1 @@
+grep -irl payson01@instanrominggo.org /var/spool/exim/input/* | awk -F "/" '{print $7}' | cut -c 1-16 | xargs exim -Mrm

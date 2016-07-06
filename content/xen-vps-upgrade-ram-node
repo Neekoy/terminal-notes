@@ -1,0 +1,9 @@
+xm info - check the available resources on the node
+
+vi /etc/xen/vpsname - edit the available RAM for the server
+
+xm shut vpsname - power off the vps
+
+xm console vpsname - monitor the power off process
+
+xm cr vpsname - power on the vps with the new settings

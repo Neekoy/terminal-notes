@@ -1,0 +1,1 @@
+grep "disabled by" \#pig.log | awk '{print $8}' | sort -nr | uniq -c | sort -nr | head -n 10

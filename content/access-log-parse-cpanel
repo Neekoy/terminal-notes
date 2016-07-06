@@ -1,0 +1,1 @@
+for each in $(find . ); do echo ${each}; cat ${each} | awk '{print $1}' | sort -n | uniq -c | sort -nr | head -n 10; echo; done

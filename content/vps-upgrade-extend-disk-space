@@ -1,0 +1,13 @@
+xm list
+
+xm shutdown vpsname && xm console vpsname
+
+mv /etc/xen/vpsname /etc/xen/vpsname-resizing
+
+lvresize -L50G /dev/vg/vpsname
+
+resize2fs /dev/vg/vpsname
+
+mv /etc/xen/vpsname-resizing /etc/xen/vpsname
+
+xm create -c vpsname

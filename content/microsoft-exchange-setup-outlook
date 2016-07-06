@@ -1,0 +1,25 @@
+Instructions to configure Outlook:
+Click Start->Control panel
+Double click 'mail'
+Click 'email accounts'
+Click 'new'
+Tick 'manually configure server settings'
+(Next)
+Select 'Microsoft Exchange'
+(Next)
+Into Microsoft Exchange Server, enter 'exchstr1.exchangenet.servers.rbl-mer.misp.co.uk'
+Into user name, enter 'firstname.lastname' (this is your primary alias)
+Make sure 'use cached exchange mode' is ticked
+Click 'more settings'
+Click the 'connection' tab
+Tick 'connect to Microsoft Exchange using HTTP'
+Click 'Exchange Proxy Settings'
+Under URL, enter exchange.tsohost.co.uk
+Make sure 'connect using ssl only' is ticked
+Tick 'on fast networks...' and 'on slow networks...'
+Make sure 'NTLM authentication' is selected
+Click ok then ok again
+Click 'check name' then when prompted enter your username (exchangenet\firstname.lastname) and your password (password)
+Click 'finish' and open Outlook.
+
+Once you have the account setup, let me know and we can arrange to copy your mail from your cloud mailbox to the Exchange mailbox.

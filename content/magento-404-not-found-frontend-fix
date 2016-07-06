@@ -1,0 +1,5 @@
+1. Open up your .htaccess file and make sure, the ‘ RewriteBase / ‘ is correctly set to your root or your subfolder.
+
+2. Clear your Cache and reindex complete data.
+
+3. Open up your database phpmyadmin and goto core_store, core_website and core_website_groups. Check if your main store is set to 0 for the is_active. If yes, then set them all to 1 , so your store gets active.

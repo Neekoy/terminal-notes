@@ -1,0 +1,1 @@
+account="schermulydesign.co.uk"; current=$(date +"%I"); while [ ${current} -gt 0 ]; do hour=${current}; echo "Emails between ${current}:00 and $[${current}-1]:00"; sudo grep ${account} /var/log/exim_mainlog | grep "${hour}\{1,2\}:[0-9]\{1,2\}\:[0-9]\{1,2\}" | wc -l; ((current-=1)); done

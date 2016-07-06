@@ -1,0 +1,5 @@
+## SITE REFERRER BANNING
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} floating-share-buttons.com [NC,OR]
+RewriteCond %{HTTP_REFERER} floating-share-buttons.com
+RewriteRule .* - [F] 

@@ -1,0 +1,1 @@
+cat /etc/userdomains | awk -F' ' '{print $2}' | grep -v par* | sort -n | uniq | while read username; do maldet -a /home/${username}/public_html; done 1>results.txt

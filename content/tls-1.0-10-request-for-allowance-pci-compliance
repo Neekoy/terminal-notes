@@ -1,0 +1,34 @@
+They're failing it because they won't allow TLS 1.0 by default, but if you fill in this form to explain why, they should pass it:
+
+https://www.trustwave.com/Resources/Library/Documents/PCI-3-1-Risk-Plan-Template/
+
+In summary you need to still support TLS 1 to allow users on older browsers to use your site. I've written the following quick answers - let me know what they say back to you:
+
+1.      Where are SSL/TLS 1.0 currently used in your environment?
+
+Only between older client web browsers and our web server, as we need to support all visitors to our website.
+Our server's subsequent traffic to our card processor will use their SSL ciphers - presumably TLS 1.2.
+Our openssl client and server versions are the latest available on the CentOS mirrors and are automatically updated by our provider's configuration management system.
+
+2.      How are you mitigating risks with SSL/TLS 1.0?
+
+The SSL cipher suite is configured in line with Mozilla guidelines, and is set to make clients use the strongest ciphers first. Fallback protection is also enabled.
+
+3.      How are you monitoring for new vulnerabilities associated with SSL/TLS 1.0?
+
+Our web hosting provider subscribes to multiple industry mailing lists. For example, we had heartbleed and other vulnerabilities patched within hours of the patches being available on the mirrors, and mitigated far in advance.
+
+4.      How are you ensuring that SSL/TLS 1.0 are not introduced into your cardholder data environment?
+
+Our card processor is PCI-compliant. We will also maintain regular PCI scans of our system and scan any new/replacement systems before they are brought into production.
+
+5.      When will your migration plan from SSL/TLS1.0 be completed?
+
+As soon as a large portion of our visitors don't need TLS 1.0. Judging by web browser usage levels, we expect this to happen later this year.
+
+
+Let me know how you get on.
+
+Kind Regards,
+Gareth Denny
+--Head of Infrastructure

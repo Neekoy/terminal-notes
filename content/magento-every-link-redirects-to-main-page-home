@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+    RewriteEngine on
+
+
+RewriteEngine on
+RewriteCond %{SERVER_PORT} ^443$
+RewriteRule ^(shop|blog|stockists|inthepress|contacts|review|home) http://www.funeralstore.co.uk%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTPS} on
+RewriteRule ^$ http://%{HTTP_HOST} [L,R]
+

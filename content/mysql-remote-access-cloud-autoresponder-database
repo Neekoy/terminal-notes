@@ -1,0 +1,13 @@
+In order to establish a remote connection to the MySQL server, you will need to add your IP to the remote access IPs. You can do this in your Cloud control panel on control.gridhost.co.uk under MySQL Databases -> Remote Access.
+
+Afterwards you will need to connect using the following credentials:
+
+Host: 91.208.99.2
+Database name: Your database name
+Username: The database user
+Password: The corresponding password
+Port: 33 + the last 2 digits of the database host
+
+For example for the server 10.168.1.90, the port would be 3390.
+
+Please let me know if you have nay additional questions.

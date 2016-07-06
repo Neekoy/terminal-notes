@@ -1,0 +1,19 @@
+You will just need to make sure that you are using the following settings in your email application:
+
+Incoming mail server: mail3.gridhost.co.uk
+Protocol: IMAP
+Authentication: On
+Username: Full email address
+Password: The corresponding password
+Port: 993
+SSL: On
+SPA: Off
+
+Outgoing mail server: mail3.gridhost.co.uk
+Protocol: SMTP
+Port: 465
+SSL: On
+Authentication: On
+Authentication: Use same settings as incoming mail server
+
+Please make sure that you have applied these settings in your application and let me know if you experience any further issues afterwards.

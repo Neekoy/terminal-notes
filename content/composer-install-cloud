@@ -1,0 +1,13 @@
+if [ ! -d ~/bin ]; then mkdir bin; fi
+
+vi .bashrc
+
+alias php='/usr/bin/php-5.4'
+export COMPOSERDIR=~/bin
+export PATH=/var/sites/b/belisarius.co.uk:$PATH
+
+source .bashrc
+
+curl -sS https://getcomposer.org/installer | php -- --install-dir=$COMPOSERDIR --filename=composer
+
+php ~/bin/composer

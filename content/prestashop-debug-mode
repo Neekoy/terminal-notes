@@ -1,0 +1,5 @@
+SSH config > defines.inc.php:
+
+define('_PS_MODE_DEV_', false);
+
+Backend > global configuration > Debug Mode & Error Reporting - Maximum

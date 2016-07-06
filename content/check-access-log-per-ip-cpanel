@@ -1,0 +1,5 @@
+/home/username/access-logs
+
+cat domain.com | awk -F\" '{print $6}' | sort | uniq -c | sort -n
+
+cat domain.com | awk -F\" '$6 ~ "-"' | awk '{print $1}' | sort -n | uniq -c | sort -n

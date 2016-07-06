@@ -1,0 +1,5 @@
+I sent the approver message to the administrative email account for the domain, which is admin@ or hostmaster@. If you don't have either one, you will need to create it, since the message is from the automated system and cannot be sent to another account.
+
+Once you receive it, please approve the SSL which will trigger a second message containing the SSL certificate itself in a .zip file. Please attach that file to this conversation so I can install it for you onto the server.
+
+Please let me know if you have any questions too.

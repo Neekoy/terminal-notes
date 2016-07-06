@@ -1,0 +1,9 @@
+Plugins
+
+Theme
+
+define('CONCATENATE_SCRIPTS',false);
+
+.js .tmce-active .wp-editor-area
+/wp-includes/css/editor.css
+/wp-includes/css/editor.min.css
