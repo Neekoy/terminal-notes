@@ -1,0 +1,2 @@
+GRANT process on *.* TO 'ghtdatao_drup1'@'localhost' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;

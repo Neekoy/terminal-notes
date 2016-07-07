@@ -1,0 +1,15 @@
+select tbl.table_schema,tbl.table_name from
+(
+    select table_schema,table_name
+    from information_schema.tables
+    where engine='MyISAM'
+    and table_schema NOT IN ('information_schema','mysql')
+) tbl
+INNER JOIN
+(
+    select table_schema,table_name
+    from information_schema.statistics
+    where index_type='FULLTEXT'
+    and table_schema='stargaze_forum_db'
+) ndx
+USING (table_schema,table_name);

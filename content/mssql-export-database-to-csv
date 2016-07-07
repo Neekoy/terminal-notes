@@ -1,0 +1,7 @@
+$tables = iex "sqlcmd -S . -d EliteMountain -Q 'SET NOCOUNT ON; SELECT TABLE_NAME FROM information_schema.tables;' -h -1"
+
+foreach ($table in $tables)
+{
+        $clean = $table.Trim();
+        echo "sqlcmd -S . -d EliteMountain -E -s, -W -Q 'select * from $clean' > C:\Users\Administrator\Documents\csv\$clean.csv"
+}

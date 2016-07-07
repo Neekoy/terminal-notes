@@ -1,0 +1,4 @@
+How to copy image. 
+*Shut-down vps
+*On the node run:
+#qemu-img convert -O qcow2 /dev/mapper/vg-lvname lvname.qcow2

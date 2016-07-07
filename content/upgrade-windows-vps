@@ -1,0 +1,11 @@
+18:16:55 <ahussain> open hyper-v manager and find the vm
+18:17:06 <ahussain> nodes are on the left hand side
+18:17:11 <ahussain> vm's in the main window
+18:17:21 <ahussain> right click vm and click properties
+18:17:54 <ahussain> if the disk that you want to extend is on a SCSI controller, you can edit and expand the vhd
+18:18:13 <ahussain> if its on IDE then you have to shutdown the machine before you can extend the disk
+18:18:31 <ahussain> this on does the virtual disk, you still have to login to the vm and expand the partition
+18:19:14 <ahussain> which you do by opening server manager and going to disk management (if its 2012+ then right click 
+                    on the start button and click on disk management
+18:19:28 <ahussain> then right click on the partition and click on expand
+18:19:30 <ahussain> done

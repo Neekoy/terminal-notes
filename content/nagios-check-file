@@ -1,0 +1,3 @@
+which check_memory_usage
+
+result: /usr/lib64/nagios/plugins/check_memory_usage

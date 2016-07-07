@@ -1,0 +1,7 @@
+log_slow_queries=1
+slow_query_log_file=/var/log/mysql_slow.log
+log_query_time=5
+
+MySQL > 5.6.1:
+
+slow_query_log=1

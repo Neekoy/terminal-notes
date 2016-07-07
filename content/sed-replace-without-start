@@ -1,0 +1,1 @@
+sed -i '/www/! s/olddomain.co.uk/newdomain.co.uk/g' filename.sql

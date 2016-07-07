@@ -1,0 +1,1 @@
+wget -O /root/mysqltuner.pl mysqltuner.pl --no-check-certificate && perl /root/mysqltuner.pl

@@ -1,0 +1,6 @@
+With mysql 5.1.29+ , the log option is deprecated. To specify the logfile use
+
+general_log_file=/path/to/query.log
+Also, to enable it from MySQL console
+
+SET global general_log = 1;

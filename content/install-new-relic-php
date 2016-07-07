@@ -1,0 +1,3 @@
+sudo yum install newrelic-php5
+
+sudo newrelic-install install

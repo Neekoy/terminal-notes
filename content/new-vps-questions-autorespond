@@ -1,4 +1,4 @@
-Thank you for the request. Can you please confirm the following information that we will need for the VPS setup and I will then forward this request to our system administrators who will set this up for you:
+Can you please provide me with the following information for the order, and we will proceed with the VPS setup for you:
 
 Hostname: (This will be in the format of yourdomain.servers.prgn.misp.co.uk, where you can change 'yourdomain' to anything you would like to - your company name, domain name, etc.)
 
@@ -12,4 +12,6 @@ MySQL Version:
 
 Additional Software: (This would be any additional applications that you would like to have installed for the server. Even if you don't have any at the moment, we can always install at a later point by your request).
 
-Please let me know if you have any questions too.
+If you don't have any specific requirements, you can just confirm the domain name you want as the main domain - we can set up everything else as the default setup.
+
+Please let me know if you have any questions.

@@ -1,0 +1,10 @@
+Regular connections:
+
+select concat('KILL ',id,';') from information_schema.processlist
+where user='root' and into outfile '/tmp/a.txt';
+
+source /tmp/a.txt;
+
+Sleepy connections:
+
+select concat('KILL ',id,';') from information_schema.processlist where Command="Sleep" into outfile '/tmp/a.txt';

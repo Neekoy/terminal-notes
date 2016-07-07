@@ -1,0 +1,3 @@
+if (req.http.Cookie ~ "woocommerce_" || req.http.Cookie ~ "wp_woocommerce_session_") {
+return (hit_for_pass);
+}

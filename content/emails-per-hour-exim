@@ -1,0 +1,7 @@
+domain="richardmarcs.com"
+date="01-12"
+for each in $(seq -w 1 24); do
+echo "Emails after ${each}"
+grep ${domain} /var/log/exim_mainlog | grep ${date} | grep ${each}:[0-9][0-9]:[0-9][0-9] | grep \=\> | wc -l
+done
+

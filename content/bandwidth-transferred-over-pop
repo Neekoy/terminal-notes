@@ -1,0 +1,3 @@
+grep julian@goren.co.uk /var/log/maillog* | grep retr= | grep -v retr=0 | awk {'print $11'} | cut -d, -f1 | cut -d= -f2 | awk '{t += $1} END { print "total: ", t, " bytes transferred over POP3"}'
+
+grep julian@goren.co.uk /var/log/maillog | grep retr= | awk {'print $7" "$1" "$2" "$3" "$11'} | grep -v retr=0

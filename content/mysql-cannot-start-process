@@ -1,0 +1,3 @@
+16:40:18 < cparker> it wouldnt start becuase mysql.db was corrupt, so start with skip-grant-tables
+16:40:21 < cparker> then repair the table
+16:40:35 < cparker> then remove the skip thingy and restart mysql

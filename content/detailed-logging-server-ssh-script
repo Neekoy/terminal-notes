@@ -1,0 +1,71 @@
+#!/bin/bash
+ 
+timeNow=$(date "+%F_%H:%M")
+ 
+filename="/root/performance_logs/log_${timeNow}.log"
+ 
+if [ ! -d "/root/performance_logs" ]; then
+    mkdir /root/performance_logs
+fi
+ 
+touch ${filename}
+ 
+printf " ### Time of scan: $(date +%F_%H:%M) ### \n\n" >> ${filename}
+
+###
+printf "\n ################## RAM ################## \n" >> ${filename}
+
+printf "\n ### Current Memory Usage: ### \n\n" >> ${filename}
+free -tm >> ${filename}
+ 
+printf "\n ### Top 10 processes by RAM usage: ### \n\n" >> ${filename}
+ps aux | awk '{print $2, $4, $11}' | sort -k2rn | head -n 10 >> ${filename}
+ 
+printf "\n ### RAM usage history for the last hour ###: \n\n" >> ${filename}
+sar -r -s $(date "+%H" -d "1 hour ago"):$(date "+%M"):00 -e $(date "+%H"):$(date "+%M"):00 >> ${filename}
+ 
+printf "\n ### Swap usage history for the last hour: ### \n\n" >> ${filename}
+sar -S -s $(date "+%H" -d "1 hour ago"):$(date "+%M"):00 -e $(date "+%H"):$(date "+%M"):00 >> ${filename}
+ 
+###
+printf "\n\n ################## CPU ################## \n" >> ${filename}
+
+printf "\n ### Current load: ### \n\n" >> ${filename}
+uptime | cut -d' ' -f10-16 >> ${filename}
+ 
+printf "\n ### Sar history for last hour: ### \n\n" >> ${filename}
+sar -s $(date "+%H" -d "1 hour ago"):$(date "+%M"):00 -e $(date "+%H"):$(date "+%M"):00 >> ${filename}
+
+###
+printf "\n\n ################## Disk: ################## \n" >> ${filename}
+df -h >> ${filename}
+
+###
+printf "\n\n ################## Apache ################## \n" >> ${filename}
+ 
+printf "\n ### IPs Connected to the server: ### \n\n" >> ${filename}
+netstat -tn 2>/dev/null | grep :80 | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr | head >> ${filename}
+echo >> ${filename}
+
+###
+printf "\n\n ################## MySQL ################## \n" >> ${filename}
+
+printf "\n ### MySQL uptime: ### \n\n" >> ${filename}
+mysqladmin ver | grep Uptime >> ${filename}
+
+printf "\n ### MySQL connections: ### \n\n" >> ${filename}
+mysql -e "show status like '%onn%';" >> ${filename}
+
+printf "\n ### MySQL processlist: ### \n\n" >> ${filename}
+mysql -e "show full processlist;" >> ${filename}
+
+###
+find /root/performance_logs/ -type f -ctime +3 -exec rm -f {} \;
+
+Puppet:
+
+    cron { 'detailed_logging':
+        ensure  => present,
+        command => '/bin/sh /root/server_logging.sh',
+        minute  => '*/5',
+    }

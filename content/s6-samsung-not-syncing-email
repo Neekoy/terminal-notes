@@ -1,0 +1,30 @@
+Can you please clear the email application and device's cache since they might be disrupting the functionality.
+
+In order to clear the application cache you need to go through the following steps:
+
+1. Go to Settings.
+2. Proceed to Applications.
+3. Select Manage Applications.
+4. Tap the All tab.
+5. Choose the name of the app in question.
+6. From there, you will see the Clear cache and Clear data buttons.
+
+You can also clear the device's cache partition if the above doesn't go through:
+
+1. Turn the device off.
+2. Press and hold the Power, Volume Up and Home buttons simultaneously.
+3. When the phone vibrates, release the Power button but continue to press and hold the Volume Up and Home buttons.
+4. Now, when Android recovery screen appears, highlight the wipe cache partition option using Volume Down button.
+5. To confirm the selection, press the Power button.
+6. Wait for a while until wiping the cache partition is finished.
+7. Now, “Reboot System now” will appear on the screen. To highlight the option use the Volume Up/Down key.
+8. Press the power button to confirm it, and your device will automatically reboot.
+
+If the issue only persists when connected through mobile data, you can make sure that data sync is enabled at the following location:
+
+1. Go to Settings.
+2. Tap Data Usage.
+3. Tap Menu icon.
+4. Put a check mark on Auto Sync Data option.
+
+If the above doesn't work, my advise would be to give a different email application a try and recreate it with the settings you outlined previously. Personally I'm using TypeMail and I haven't experienced any issues with it for IMAP.

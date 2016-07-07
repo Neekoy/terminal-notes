@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+my %OPTS = @ARGV;
+
+my $username = $OPTS{'user'};
+my $domain = $OPTS{'domain'};
+
+#my $username = "daushdauhdsa";
+#my $domain = "lalal.com";
+my $dir = "/home/".$username."/.cpanel/nvdata";
+
+mkdir $dir or die "Couldn't create $dir directory, $!";
+
+my $file =  "/home/".$username."/.cpanel/nvdata/optionselect_filemanager";
+my $content = "webroot:".$domain.":1:1";
+
+open my $filehandle, '>>', $file;
+print $filehandle $content;
+close $filehandle

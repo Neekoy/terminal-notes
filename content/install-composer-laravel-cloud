@@ -1,0 +1,13 @@
+###Composer:
+
+wget https://getcomposer.org/installer
+
+/usr/bin/php-5.4 installer --install-dir=/var/sites/r/robertspianos.com
+
+.bashrc > /usr/bin/php-5.6 /var/sites/r/robertspianos.com/composer.phar
+
+###Laravel:
+
+composer global require "laravel/installer"
+
+.bashrc > /usr/bin/php-5.6 /var/sites/r/robertspianos.com/.composer/vendor/bin/laravel

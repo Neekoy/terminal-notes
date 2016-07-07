@@ -1,0 +1,11 @@
+PHPMyAdmin:
+
+https://netadmin-002.sl5.misp.co.uk/passdb/cred/detail/8197/
+
+1. Run query for domain in domains DB and get customer_id
+
+2. Run query for user_id in users DB to get username and pass
+
+3. Log into Redirection manager at the following URL:
+
+http://195.238.172.254/redirectionmanager/ 

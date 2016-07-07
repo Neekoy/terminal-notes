@@ -1,0 +1,3 @@
+./sites/dev.pcrs-uk.org/settings.php
+
+$conf['securepages_enable'] = FALSE;

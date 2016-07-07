@@ -1,0 +1,30 @@
+#!/bin/bash
+
+ticket="VIF-640-53982"
+
+if [ ! -d ~/maldet_scans]; then
+    mkdir ~/maldet_scans
+fi
+
+server=$(hostname)
+
+curTime=$(date +"%m-%d-%y_%H-%M");
+
+touch /root/maldet_scans/${curTime}
+
+echo -e "Maldet scan on ${server} (ticket ${ticket}):\n" >> /root/maldet_scans/${curTime}
+
+cat /etc/userdomains |
+awk -F' ' '{print $2}' |
+grep -v par* |
+grep -v nobody |
+sort -n |
+uniq |
+while read username; do
+    echo -e "\n\nUSERNAME: ${username}\n\n" >> /root/maldet_scans/${curTime};
+    maldet -a /home/${username}/public_html | tee -a /root/maldet_scans/${curTime}; 
+done
+
+cat /root/maldet_scans/${curTime} | mailx -s "Maldet scan on ${server} (ticket ${ticket})" sysops@tsohost.co.uk
+
+cat /root/maldet_scans/${curTime} | mailx -s "Maldet scan on ${server} (ticket ${ticket})" hristian.m@paragon.net.uk
