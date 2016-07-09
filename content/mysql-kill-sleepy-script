@@ -1,0 +1,6 @@
+#!/bin/bash
+
+random=$RANDOM
+mysql -e "select concat('KILL ',id,';') from information_schema.processlist where Command='Sleep' into outfile '/tmp/${random}.txt';"
+mysql -e "source /tmp/${random}.txt";
+rm -f /tmp/${random}.txt;

@@ -1,0 +1,45 @@
+Please check this before installing redis
+https://robotsystematic.com/redis-higher-than-2-6-in-centos
+or better to download latest from http://redis.io/ and then https://www.openprogrammer.info/2015/05/10/how-to-install-redis-3-x-on-new-centos-6-6-server/ , helps setting up multiple instances.
+An alternative to APC or Memcache for Magento is redis, aka Dom's favourite!
+To set this up please do the following:
+Make sure the client is using Magento 1.8+
+Install Redis
+yum install redis perl-Redis
+service redis start
+chkconfig redis on
+
+If chkconfig does not like redis see: http://www.saltwebsites.com/2011/how-install-redis-service-centos-60
+
+Install PECL
+pecl install lzf redis
+Add to Nagios The Nagios check runs check_redis. Make sure this command runs successfully:
+ /usr/lib64/nagios/plugins/check_redis -H localhost
+Activate module in /home/user/public_html/app/etc/modules/Cm_RedisSession.xml and set to true
+<active>true</active>
+Activate Redis in local.xml /home/user/public_html/app/etc/local.xml under <global>
+      <cache>
+         <backend>Cm_Cache_Backend_Redis</backend>
+         <backend_options>
+           <server>127.0.0.1</server>              
+           <port>6379</port>
+           <persistent></persistent>               
+           <database>0</database>
+           <password></password>
+           <force_standalone>0</force_standalone>  
+           <connect_retries>1</connect_retries>    
+           <read_timeout>10</read_timeout>         
+           <automatic_cleaning_factor>0</automatic_cleaning_factor> 
+           <compress_data>1</compress_data>        
+           <compress_tags>1</compress_tags>        
+           <compress_threshold>20480</compress_threshold>  
+           <compression_lib>gzip</compression_lib> 
+         </backend_options>
+      	</cache>
+Check Redis is running.
+echo 'info' | redis-cli -h 127.0.0.1 -p 6379 | grep connections
+Should return some results.
+Check Redis is Caching
+redis-cli
+ keys *
+This should give you some pretty results!
