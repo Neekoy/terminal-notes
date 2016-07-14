@@ -1,0 +1,7 @@
+1. Generate a hash with password:
+
+perl -MDigest::MD5=md5_hex -e 'print md5_hex($ARGV[0]),"\n"' PASSWORD
+
+2. Edit /etc/exim/passwd and add the following:
+
+emailName@hostname.com:hashedPassword
