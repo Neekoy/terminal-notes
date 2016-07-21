@@ -1,0 +1,35 @@
+1. If the 'postgres' user asks for password:
+
+/var/lib/pgsql/data/pg_gba.conf -> Change all md5's at the bottom to 'trust'
+
+2. Backup existing databases:
+
+su - postgres
+pg_dumpall > alldatabases.sql
+
+3. Download the RPM which will add this version to yum:
+
+wget https://download.postgresql.org/pub/repos/yum/9.2/redhat/rhel-6-x86_64/pgdg-centos92-9.2-7.noarch.rpm
+
+4. yum install pgdg-centos92-9.2-7.noarch.rpm
+
+5. yum install postgresql92-server
+
+6. Swap the daemon scripts:
+
+mv /scripts/init.d/postgres /scripts/init.d/postgres-8.2
+/scripts/init.d/postgres-9.2 -> /scripts/init.d/postgres
+
+7. Restart Postgres (this will stop the old instalation and start the 9.2):
+
+service postgres restart
+
+8. Import the databaes into the new db
+
+service postgresql-9.4 initdb
+su - postgres
+psql < alldatabases.sql
+
+9. Swap all Postgres-related binaries with the new version's ones:
+
+cd /usr/pgsql-9.2/bin/; for f in *; do echo $f; [ -e /usr/bin/$f ] && mv /usr/bin/$f /usr/bin/$f.8; ln -s $(pwd)/$f /usr/bin/$f; done
