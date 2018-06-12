@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ $# -eq 0 ]]
+then
+        echo "Please enter your search terms for a note."
+        exit 0
+fi
+
 echo "Please enter the search keywords for this entry:"
 
 read keywords
