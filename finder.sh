@@ -2,8 +2,8 @@
 
 if [[ $# -eq 0 ]]
 then
-	echo "Please enter your search terms for a note."
-	exit 0
+        echo "Please enter your search terms for a note."
+        exit 0
 fi
 
 SCRIPT=$(realpath $0)
