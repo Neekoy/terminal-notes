@@ -1,0 +1,1 @@
+sudo docker inspect -f '{{ .NetworkSettings.IPAddress }}' NAME
