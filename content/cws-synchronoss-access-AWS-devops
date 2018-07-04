@@ -1,0 +1,5 @@
+https://gitlab.cwscloud.net/dmc/terraform/tree/master/ECR
+
+In this repo, add the nickname and AWS account ID in this file: account-list.tf
+
+Then run "terraform plan" to test out the output and "terraform apply" to push it.
