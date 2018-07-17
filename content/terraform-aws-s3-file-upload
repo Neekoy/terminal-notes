@@ -1,0 +1,32 @@
+Terraform file upload:
+
+#! /bin/bash
+
+BUCKET_NAME=""
+SRC="src/"
+TF_FILE="files.tf"
+COUNT=0
+
+echo "" > ${TF_FILE}
+
+find $SRC -iname '*.*' | while read path; do
+
+    cat >> $TF_FILE << EOM
+
+resource "aws_s3_bucket_object" "file_$COUNT" {
+  bucket = "${BUCKET_NAME}"
+  key = "${path#$SRC}"
+  source = "$path"
+  content_type = "\${lookup(var.mime_types, "${path##*.}")}"
+  etag = "\${md5(file("$path"))}"
+}
+EOM
+
+    COUNT=$(expr $COUNT + 1)
+
+done
+
+
+Also possible with S3 sync:
+
+aws s3 sync . s3://att-poc.indigo-stage.cwscloud.net/
